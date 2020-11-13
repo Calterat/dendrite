@@ -2,7 +2,6 @@
 const whiteboardEl = $('#whiteboard');
 
 const populateWordCard = (word) => {
-    console.log(word);
     // create card element and it's children
     let cardDivEl = $("<div>");
     let cardTitleEl = $('<h3>').text('Random Word(s):');
@@ -28,10 +27,13 @@ const randomWordFetch = () => {
                 return response.json();
             } else {
                 // alert(`ERROR: ${response.statusText}`);
+                populateWordCard('placeholder');
             }
         })
         .then(response => {
-            populateWordCard(response.word);
+            if (response) {
+                populateWordCard(response.word);
+            }      
         })
 }
 
