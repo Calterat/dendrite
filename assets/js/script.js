@@ -1,7 +1,5 @@
 // API fetch for random word with wordsAPI and function that creates the card.
 const whiteboardEl = $('#whiteboard');
-let wordsApiUrl = 'https://wordsapiv1.p.rapidapi.com/words/?random=true';
-let wordsApiKey = "XXX";
 
 const populateWordCard = (word) => {
     console.log(word);
@@ -16,6 +14,8 @@ const populateWordCard = (word) => {
 
 // pulls random word and then spits it to it's card generator
 const randomWordFetch = () => {
+    let wordsApiUrl = 'https://wordsapiv1.p.rapidapi.com/words/?random=true';
+    let wordsApiKey = "XXX";
     fetch(`${wordsApiUrl}`, {
         "method": "GET",
         "headers": {
