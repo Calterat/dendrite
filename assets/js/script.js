@@ -1,16 +1,54 @@
-// API fetch for random facts and display cards using chosen CSS CDN in HTML whiteboard div
+// API fetch for random word with wordsAPI and function that creates the card.
+const whiteboardEl = $('#whiteboard');
 
-// API query for additional info based on the randoms selected for the day and only those dragged to column 1/ method 1.
+const populateWordCard = (word) => {
+    console.log(word);
+    // create card element and it's children
+    let cardDivEl = $("<div>");
+    let cardTitleEl = $('<h3>').text('Random Word(s):');
+    let cardWordEl = $('<h4>').text(word);
+    // add word to title of card and append it to card
+    cardDivEl.append(cardTitleEl).append(cardWordEl);
+    whiteboardEl.append(cardDivEl);
+}
 
-// moment.js or other time js cdn for color coding the time bar in the HTML
+// pulls random word and then spits it to it's card generator
+const randomWordFetch = () => {
+    let wordsApiUrl = 'https://wordsapiv1.p.rapidapi.com/words/?random=true';
+    let wordsApiKey = "XXX";
+    fetch(`${wordsApiUrl}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": wordsApiKey,
+            "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                // alert(`ERROR: ${response.statusText}`);
+            }
+        })
+        .then(response => {
+            populateWordCard(response.word);
+        })
+}
 
-// make the columns drag and drop friendly, and make columns unlock at certain times of the day
+randomWordFetch();
 
-// create quiz for modal from API requests
+// API fetch for random fact from X API
 
-// display in modals the method procedures for each time an item is dragged to its method column
+// API fetch for random fact from Y API
 
-// display in modal the quiz for the last step
+// API fetch for random fact from Z API
+
+
+// display cards using chosen CSS CDN in HTML whiteboard div
+
+// make white board cards draggable to any method column
+
+// display the method procedures in modals for each time an item is dragged to its method column
 
 
 
