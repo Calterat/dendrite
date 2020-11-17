@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dendrite</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+   
 </head>
 
 <body>
     <!--Header-->
-    <header>
-        <h1 class="page-title">Group Project</h1>
-        <p>Word of The Day</p>
+    <header class="hero is-warning is-bold has-text-centered">
+        <h1 class="title is-3">Team Dendrite</h1>
+        <p class="subtitle is-5">-<strong class="text is-italic">Word</strong> of The Day-</p>
 
         <section class="board" id=whiteboard>
             
@@ -21,34 +24,91 @@
 
     </header>
 
-    <!--Main Content/ Task organizer-->
-    <main class="page-content" id="page-content">
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Read</h2>
-            <ul class="task-list" id="tasks-to-do"></ul>       
-        </section>
+    
 
-        <!-- Tasks In Progress -->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Memorize</h2>
-            <ul class="task-list" id="tasks-in-progress"></ul>
-        </section>
-  
-        <!-- Tasks Completed -->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Learn</h2>
-            <ul class="task-list" id="tasks-completed"></ul>
-        </section>
+    <main>
+        <div class="columns">
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="title">Loci</p>
+                        <p class="subtitle">blah blah blah</p>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <a href="#" class="button">
+                                <p>nailed it!</p>
+                            </a>
+                            <a href="#" class="button">
+                                <p>didn't nail it!</p>
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
 
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Study</h2>
-            <ul class="task-list" id="tasks-completed"></ul>
-        </section>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="title">Mnemonics</p>
+                        <p class="subtitle">blah blah blah</p>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <a href="#" class="button">
+                                <p>nailed it!</p>
+                            </a>
+                            <a href="#" class="button">
+                                <p>didn't nail it!</p>
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+
+             <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="title">Storytelling</p>
+                        <p class="subtitle">blah blah blah</p>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <a href="#" class="button">
+                                <p>nailed it!</p>
+                            </a>
+                            <a href="#" class="button">
+                                <p>didn't nail it!</p>
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+
+             <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="title">Chunking</p>
+                        <p class="subtitle">blah blah blah</p>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <a href="#" class="button">
+                                <p>nailed it!</p>
+                            </a>
+                            <a href="#" class="button">
+                                <p>didn't nail it!</p>
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!--Footer-->
-    <footer>
-        &copy;2020 Group Project 
+    <footer class="footer has-text-centered">
+        <p>&copy;2020 Group Project</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
