@@ -1,12 +1,12 @@
 // API fetch for random word with wordsAPI and function that creates the card.
 const whiteboardEl = $('#whiteboard');
 
-const populateWordCard = (word) => {
+const populateCard = (type, thing) => {
     // create card element and it's children
     let cardDivEl = $("<div>");
     cardDivEl.addClass('card is-narrow p-2');
-    let cardTitleEl = $('<h3>').text('Random Word(s):');
-    let cardWordEl = $('<h4>').text(word);
+    let cardTitleEl = $('<h3>').text(type);
+    let cardWordEl = $('<h4>').text(thing);
     // add word to title of card and append it to card
     cardDivEl.append(cardTitleEl).append(cardWordEl);
     whiteboardEl.append(cardDivEl);
@@ -32,14 +32,37 @@ const randomWordFetch = () => {
         })
         .then(response => {
             if (response) {
-                populateWordCard(response.word);
+                populateCard('Random Word(s):', response.word);
             } else {
-                populateWordCard('Placeholder');
+                populateCard('Randomness:', 'Placeholder');
             }
         })
 }
 
+// API fetch for random wikipedia article.
+
+// pulls random word and then spits it to it's card generator
+const randomWikiFetch = () => {
+    let wikiApiUrl = 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=random&rnnamespace=0&rnlimit=4&origin=*';
+    fetch(wikiApiUrl)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert(`ERROR: ${response.statusText}`);
+            }
+        })
+        .then(response => {
+            populateCard('Random Wiki:', response.query.random[0].title);
+            populateCard('Random Wiki:', response.query.random[1].title);
+            populateCard('Random Wiki:', response.query.random[2].title);
+            populateCard('Random Wiki:', response.query.random[3].title);
+        })
+}
+
+
 randomWordFetch();
+randomWikiFetch();
 
 // API fetch for random fact from X API
 
