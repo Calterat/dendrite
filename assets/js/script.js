@@ -25,7 +25,7 @@ const loadMethods = () => {
 }
 
 // save method placements
-const saveTasks = () => {
+const saveMethods = () => {
     localStorage.setItem("methodPlacement", JSON.stringify(methodPlacement));
   };
 
@@ -73,7 +73,7 @@ $(".method-container").sortable({
         let arrName = $(this).attr("id");
         if (arrName !== 'whiteboard') {
             methodPlacement[arrName] = tempArr;
-            saveTasks();
+            saveMethods();
         }
       }
   });
@@ -124,12 +124,24 @@ const randomWikiFetch = () => {
             // populateCard('Random Wiki:', response.query.random[2].title);
             // populateCard('Random Wiki:', response.query.random[3].title);
         })
+};
+
+const deleteItems = (event) => {
+    if (event.target.className === "button") {
+        let id = event.target.attributes[1].value;
+        console.log(id);
+        methodPlacement[id] = [];
+        console.log(methodPlacement[id])
+        $(`#${id}`).html('');
+        saveMethods();
+    }
 }
 
 
 randomWordFetch();
 randomWikiFetch();
 loadMethods();
+$('#main').on('click', deleteItems);
 
 
 // display cards using chosen CSS CDN in HTML whiteboard div
