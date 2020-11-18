@@ -1,5 +1,7 @@
+// initializing object for localStorage
 let methodPlacement = {};
-// API fetch for random word with wordsAPI and function that creates the card.
+
+// Pulling the Whiteboard element for global use
 const whiteboardEl = $('#whiteboard');
 
 // loads localStorage items
@@ -14,7 +16,6 @@ const loadMethods = () => {
         '4': []
       };
     }
-
     // loop over object properties
     $.each(methodPlacement, function(list, arr) {
     // then loop over sub-array
@@ -29,7 +30,7 @@ const saveMethods = () => {
     localStorage.setItem("methodPlacement", JSON.stringify(methodPlacement));
   };
 
-// generates random tiles for drag and drop
+// generates tiles for drag and drop
 const populateCard = (type, thing, method) => {
     // create card element and it's children
     let cardDivEl = $("<div>");
@@ -38,13 +39,15 @@ const populateCard = (type, thing, method) => {
     let cardWordEl = $('<h4>').text(thing);
     // add word to title of card and append it to card
     cardDivEl.append(cardTitleEl).append(cardWordEl);
+    // if there is no method id then append new, otherwise place in appropriate method column
     if (!method) {
         whiteboardEl.append(cardDivEl);
     } else {
         $(`#${method}`).append(cardDivEl);
     }
-}
+};
 
+// jQuery sort function. This also activates Modals.
 $(".method-container").sortable({
     connectWith: $(".method-container"),
     appendTo: document.body,
@@ -74,9 +77,11 @@ $(".method-container").sortable({
         let arrName = $(this).attr("id");
         if (arrName !== 'whiteboard') {
             methodPlacement[arrName] = tempArr;
+            // if area you are trying to place isn't whiteboard id than save to localStorage
             saveMethods();
         }
       },
+      // highlight spots to be able to drop cards
       activate: function(event) {
           for (i=1;i<5;i++){
               $(`#${i}`).addClass('ui-state-highlight');
@@ -88,6 +93,8 @@ $(".method-container").sortable({
           }
       }
   });
+
+// API fetch for random word with wordsAPI and function that creates the card.
 
 // pulls random word and then spits it to it's card generator
 const randomWordFetch = () => {
@@ -137,6 +144,7 @@ const randomWikiFetch = () => {
         })
 };
 
+// this functions deletes cards in the targetted method columns
 const deleteItems = (event) => {
     if (event.target.className === "button") {
         let id = event.target.attributes[1].value;
@@ -146,18 +154,10 @@ const deleteItems = (event) => {
     }
 }
 
-
 randomWordFetch();
 randomWikiFetch();
 loadMethods();
 $('#main').on('click', deleteItems);
-
-
-// display cards using chosen CSS CDN in HTML whiteboard div
-
-// make white board cards draggable to any method column
-
-// display the method procedures in modals for each time an item is dragged to its method column
 
 
 
