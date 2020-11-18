@@ -9,6 +9,14 @@ main {
 .columns {
     padding: 20px; 
 }
+body {
+    font-family: 'Libre Baskerville', serif;
+}
 
 
-
+/* Styling title header for method columns */
+.method-header {
+    padding: 20px;
+    background-color: #ffca18;
+    text-align: center;
+}
