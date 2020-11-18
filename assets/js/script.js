@@ -76,6 +76,16 @@ $(".method-container").sortable({
             methodPlacement[arrName] = tempArr;
             saveMethods();
         }
+      },
+      activate: function(event) {
+          for (i=1;i<5;i++){
+              $(`#${i}`).addClass('ui-state-highlight');
+          }
+      },
+      deactivate: function(event) {
+          for (i=1;i<5;i++){
+              $(`#${i}`).removeClass('ui-state-highlight');
+          }
       }
   });
 
