@@ -1,9 +1,9 @@
 main {
-    height: 700px;
+    height: 650px;
 }
 
 .methods {
-    height: 500px;
+    height: 400px;
 }
 
 .columns {
@@ -16,7 +16,7 @@ body {
 
 /* Styling title header for method columns */
 .method-header {
-    padding: 20px;
+    padding: 10px;
     background-color: #ffca18;
     text-align: center;
 }
