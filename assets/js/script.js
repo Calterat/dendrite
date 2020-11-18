@@ -1,7 +1,36 @@
+let methodPlacement = {};
 // API fetch for random word with wordsAPI and function that creates the card.
 const whiteboardEl = $('#whiteboard');
 
-const populateCard = (type, thing) => {
+// loads localStorage items
+const loadMethods = () => {
+    methodPlacement = JSON.parse(localStorage.getItem("methodPlacement"));
+    // if nothing in localStorage, create a new object to track all cards in what methods
+    if (!methodPlacement) {
+      methodPlacement = {
+        '1': [],
+        '2': [],
+        '3': [],
+        '4': []
+      };
+    }
+
+    // loop over object properties
+    $.each(methodPlacement, function(list, arr) {
+    // then loop over sub-array
+    arr.forEach(function(method) {
+      populateCard(method.randoFrom, method.rando, list);
+    });
+  });
+}
+
+// save method placements
+const saveTasks = () => {
+    localStorage.setItem("methodPlacement", JSON.stringify(methodPlacement));
+  };
+
+// generates random tiles for drag and drop
+const populateCard = (type, thing, method) => {
     // create card element and it's children
     let cardDivEl = $("<div>");
     cardDivEl.addClass('card is-narrow p-2 mx-4');
@@ -9,7 +38,11 @@ const populateCard = (type, thing) => {
     let cardWordEl = $('<h4>').text(thing);
     // add word to title of card and append it to card
     cardDivEl.append(cardTitleEl).append(cardWordEl);
-    whiteboardEl.append(cardDivEl);
+    if (!method) {
+        whiteboardEl.append(cardDivEl);
+    } else {
+        $(`#${method}`).append(cardDivEl);
+    }
 }
 
 $(".method-container").sortable({
@@ -38,10 +71,10 @@ $(".method-container").sortable({
             })
         });
         let arrName = $(this).attr("id");
-        // if (arrName !== 'whiteboard') {
-        //     methodPlacement[arrName] = tempArr;
-        //     saveTasks();
-        // }
+        if (arrName !== 'whiteboard') {
+            methodPlacement[arrName] = tempArr;
+            saveTasks();
+        }
       }
   });
 
@@ -61,7 +94,6 @@ const randomWordFetch = () => {
                 return response.json();
             } else {
                 // alert(`ERROR: ${response.statusText}`);
-                populateCard('placeholder');
             }
         })
         .then(response => {
@@ -89,14 +121,15 @@ const randomWikiFetch = () => {
         .then(response => {
             populateCard('Random Wiki:', response.query.random[0].title);
             populateCard('Random Wiki:', response.query.random[1].title);
-            populateCard('Random Wiki:', response.query.random[2].title);
-            populateCard('Random Wiki:', response.query.random[3].title);
+            // populateCard('Random Wiki:', response.query.random[2].title);
+            // populateCard('Random Wiki:', response.query.random[3].title);
         })
 }
 
 
 randomWordFetch();
 randomWikiFetch();
+loadMethods();
 
 
 // display cards using chosen CSS CDN in HTML whiteboard div
