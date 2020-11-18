@@ -47,6 +47,7 @@ const populateCard = (type, thing, method) => {
 
 $(".method-container").sortable({
     connectWith: $(".method-container"),
+    appendTo: document.body,
     scroll: false,
     tolerance: "pointer",
     helper: "clone",
@@ -129,9 +130,7 @@ const randomWikiFetch = () => {
 const deleteItems = (event) => {
     if (event.target.className === "button") {
         let id = event.target.attributes[1].value;
-        console.log(id);
         methodPlacement[id] = [];
-        console.log(methodPlacement[id])
         $(`#${id}`).html('');
         saveMethods();
     }
