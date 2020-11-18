@@ -4,7 +4,7 @@ const whiteboardEl = $('#whiteboard');
 const populateCard = (type, thing) => {
     // create card element and it's children
     let cardDivEl = $("<div>");
-    cardDivEl.addClass('card is-narrow p-2');
+    cardDivEl.addClass('card is-narrow p-2 mx-4');
     let cardTitleEl = $('<h3>').text(type);
     let cardWordEl = $('<h4>').text(thing);
     // add word to title of card and append it to card
