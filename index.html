@@ -5,54 +5,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dendrite</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA==" crossorigin="anonymous" />    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
 </head>
 
 <body>
     <!--Header-->
-    <header>
-        <h1 class="page-title">Group Project</h1>
-        <p>Word of The Day</p>
+    <header class="hero is-warning is-bold has-text-centered">
+        <div class='hero-body'>
+        <h1 class="title is-3">Team Dendrite</h1>
+        <p class="subtitle is-5">-<strong class="text is-italic">Word</strong> of The Day-</p>
 
-        <section class="board" id=whiteboard>
+        <div class="columns is-centered method-container" id=whiteboard>
             
-        </section>
-
+        </div>
+        </div>
     </header>
 
-    <!--Main Content/ Task organizer-->
-    <main class="page-content" id="page-content">
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Read</h2>
-            <ul class="task-list" id="tasks-to-do"></ul>       
-        </section>
+    
+    <main id='main'>
+        <div class="columns ">
+            <div class="column">
+                <div class="card">
+                    <p class="title">Loci</p>
+                    <p class="subtitle">blah blah blah</p>
+                    <div class="card-content methods method-container" id="1"></div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <buttons class="button" value='1' type='button'>
+                                nailed it!
+                            </buttons>
+                        </div>
+                    </footer>
+                </div>
+            </div>
 
-        <!-- Tasks In Progress -->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Memorize</h2>
-            <ul class="task-list" id="tasks-in-progress"></ul>
-        </section>
-  
-        <!-- Tasks Completed -->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Learn</h2>
-            <ul class="task-list" id="tasks-completed"></ul>
-        </section>
+            <div class="column">
+                <div class="card">
+                    <p class="title">Mnemonics</p>
+                    <p class="subtitle">blah blah blah</p>
+                    <div class="card-content methods method-container" id="2"></div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <buttons class="button" value='2' type='button'>
+                                nailed it!
+                            </buttons>
+                        </div>
+                    </footer>
+                </div>
+            </div>
 
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Study</h2>
-            <ul class="task-list" id="tasks-completed"></ul>
-        </section>
+            <div class="column">
+                <div class="card">
+                    <p class="title">Storytelling</p>
+                    <p class="subtitle">blah blah blah</p>
+                    <div class="card-content methods method-container" id="3"></div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <buttons class="button" value='3' type='button'>
+                                nailed it!
+                            </buttons>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+
+             <div class="column">
+                <div class="card">
+                    <p class="title">Chunking</p>
+                    <p class="subtitle">blah blah blah</p>
+                    <div class="card-content methods method-container" id="4"></div>
+                    <footer class="card-footer">
+                        <div class="card-footer-item">
+                            <buttons class="button" value='4' type='button'>
+                                nailed it!
+                            </buttons>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!--Footer-->
-    <footer>
-        &copy;2020 Group Project 
+    <footer class="footer has-text-centered">
+        <p>&copy;2020 Group Project</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
