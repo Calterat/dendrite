@@ -55,21 +55,20 @@ $(".method-container").sortable({
     tolerance: "pointer",
     helper: "clone",
     receive: function(event) {
-        // let re = / /gi;
-        // let query = event.target.childNodes[1].childNodes[1].innerText.replace(re, '+');
-        // let modalNum = event.target.id;
-        // let modalQuery = $(`#modalLink${modalNum}`);
-        // let modalLink = $('<a>').attr('href', `https://www.google.com/search?q=${query}`).attr('target', '_blank')
-        // modalLink.html(`Click here to see your google search on ${event.target.childNodes[1].childNodes[1].innerText}`);
-        // modalQuery.append(modalLink);
-        // $(`#modal-method${modalNum}`).addClass('active');
+        console.log(event);
+        let re = / /gi;
+        let query = event.target.childNodes[0].childNodes[1].innerText.replace(re, '+');
+        let modalNum = event.target.id;
+        console.log(event.target.id);
+        let modalQuery = $(`#modalLink${modalNum}`);
+        let modalLink = $('<a>').attr('href', `https://www.google.com/search?q=${query}`).attr('target', '_blank')
+        modalLink.html(`Click here to see your google search on ${event.target.childNodes[0].childNodes[1].innerText}`);
+        modalQuery.append(modalLink);
+        $(`#modal-method${modalNum}`).addClass('is-active');
     },
     out: function(event) {
-        console.log(event.target);
         if (event.target.id === "whiteboard") {
             let whiteBoard = $('#whiteboard');
-            console.log(whiteBoard[0].children);
-            console.log(whiteBoard[0].children.length);
             if (whiteBoard[0].children.length === 2) {
                 randomWordFetch();
                 randomWikiFetch();
@@ -166,10 +165,18 @@ const deleteItems = (event) => {
     }
 }
 
+const buttonClick = (event) => {
+    let modalNum = event.target.id[5];
+    let modalLink = $(`#modalLink${modalNum}`);
+    modalLink.html('');
+    $(`#modal-method${modalNum}`).removeClass('is-active');
+}
+
 randomWordFetch();
 randomWikiFetch();
 loadMethods();
 $('#main').on('click', deleteItems);
+$('#modals').on('click', buttonClick);
 
 
 
