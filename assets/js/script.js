@@ -64,6 +64,18 @@ $(".method-container").sortable({
         // modalQuery.append(modalLink);
         // $(`#modal-method${modalNum}`).addClass('active');
     },
+    out: function(event) {
+        console.log(event.target);
+        if (event.target.id === "whiteboard") {
+            let whiteBoard = $('#whiteboard');
+            console.log(whiteBoard[0].children);
+            console.log(whiteBoard[0].children.length);
+            if (whiteBoard[0].children.length === 2) {
+                randomWordFetch();
+                randomWikiFetch();
+            }
+        }
+    },
     update: function(event) {
         let tempArr = [];
         $(this).children().each(function(){
