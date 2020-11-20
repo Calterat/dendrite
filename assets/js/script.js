@@ -55,14 +55,16 @@ $(".method-container").sortable({
     tolerance: "pointer",
     helper: "clone",
     receive: function(event) {
-        let re = / /gi;
-        let query = event.target.childNodes[0].childNodes[1].innerText.replace(re, '+');
-        let modalNum = event.target.id;
-        let modalQuery = $(`#modalLink${modalNum}`);
-        let modalLink = $('<a>').attr('href', `https://www.google.com/search?q=${query}`).attr('target', '_blank')
-        modalLink.html(`Your practice starts with ${event.target.childNodes[0].childNodes[1].innerText}`);
-        modalQuery.append(modalLink);
-        $(`#modal-method${modalNum}`).addClass('is-active');
+        if (event.target.id !== "whiteboard") {
+            let re = / /gi;
+            let query = event.target.childNodes[0].childNodes[1].innerText.replace(re, '+');
+            let modalNum = event.target.id;
+            let modalQuery = $(`#modalLink${modalNum}`);
+            let modalLink = $('<a>').attr('href', `https://www.google.com/search?q=${query}`).attr('target', '_blank')
+            modalLink.html(`Your practice starts with ${event.target.childNodes[0].childNodes[1].innerText}`);
+            modalQuery.append(modalLink);
+            $(`#modal-method${modalNum}`).addClass('is-active');
+        }
     },
     out: function(event) {
         if (event.target.id === "whiteboard") {
