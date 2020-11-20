@@ -55,16 +55,30 @@ $(".method-container").sortable({
     tolerance: "pointer",
     helper: "clone",
     receive: function(event) {
-        // let re = / /gi;
-        // let query = event.target.childNodes[1].childNodes[1].innerText.replace(re, '+');
-        // let modalNum = event.target.id;
-        // let modalQuery = $(`#modalLink${modalNum}`);
-        // let modalLink = $('<a>').attr('href', `https://www.google.com/search?q=${query}`).attr('target', '_blank')
-        // modalLink.html(`Click here to see your google search on ${event.target.childNodes[1].childNodes[1].innerText}`);
-        // modalQuery.append(modalLink);
-        // $(`#modal-method${modalNum}`).addClass('active');
+        // activate Modal with link for search as long as the card wasn't dropped in whiteboard
+        if (event.target.id !== "whiteboard") {
+            let re = / /gi;
+            let query = event.target.childNodes[0].childNodes[1].innerText.replace(re, '+');
+            let modalNum = event.target.id;
+            let modalQuery = $(`#modalLink${modalNum}`);
+            let modalLink = $('<a>').attr('href', `https://www.google.com/search?q=${query}`).attr('target', '_blank')
+            modalLink.html(`Your practice starts with ${event.target.childNodes[0].childNodes[1].innerText}`);
+            modalQuery.append(modalLink);
+            $(`#modal-method${modalNum}`).addClass('is-active');
+        }
+    },
+    out: function(event) {
+        // If you pull all the cards out, repopulate it
+        if (event.target.id === "whiteboard") {
+            let whiteBoard = $('#whiteboard');
+            if (whiteBoard[0].children.length === 2) {
+                randomWordFetch();
+                randomWikiFetch();
+            }
+        }
     },
     update: function(event) {
+        // Create temp object to push to localStorage
         let tempArr = [];
         $(this).children().each(function(){
             let randoText = $(this).find('h3').text().trim();
@@ -75,13 +89,13 @@ $(".method-container").sortable({
             })
         });
         let arrName = $(this).attr("id");
+        // Makes sure to not save any whiteboard cards
         if (arrName !== 'whiteboard') {
             methodPlacement[arrName] = tempArr;
-            // if area you are trying to place isn't whiteboard id than save to localStorage
             saveMethods();
         }
       },
-      // highlight spots to be able to drop cards
+      // highlight spots cards can be dropped in
       activate: function(event) {
           for (i=1;i<5;i++){
               $(`#${i}`).addClass('ui-state-highlight');
@@ -125,7 +139,7 @@ const randomWordFetch = () => {
 
 // API fetch for random wikipedia article.
 
-// pulls random word and then spits it to it's card generator
+// Pulls random word and then spits it to it's card generator
 const randomWikiFetch = () => {
     let wikiApiUrl = 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=random&rnnamespace=0&rnlimit=4&origin=*';
     fetch(wikiApiUrl)
@@ -144,7 +158,7 @@ const randomWikiFetch = () => {
         })
 };
 
-// this functions deletes cards in the targetted method columns
+// This functions deletes cards in the targetted method columns
 const deleteItems = (event) => {
     if (event.target.className === "button") {
         let id = event.target.attributes[1].value;
@@ -154,10 +168,21 @@ const deleteItems = (event) => {
     }
 }
 
+// Closes the Modal currently open
+const closeModal = (event) => {
+    let modalNum = event.target.id[5];
+    let modalLink = $(`#modalLink${modalNum}`);
+    modalLink.html('');
+    $(`#modal-method${modalNum}`).removeClass('is-active');
+}
+
+// starts page content
 randomWordFetch();
 randomWikiFetch();
 loadMethods();
+// listens for clicks on buttons
 $('#main').on('click', deleteItems);
+$('#modals').on('click', closeModal);
 
 
 

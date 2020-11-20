@@ -1,14 +1,19 @@
-main {
-    height: 700px;
-}
+/*main {
+    height: 625px;
+}*/
 
 .methods {
-    height: 500px;
+    height: 400px;
 }
 
 .columns {
-    padding: 20px; 
+    padding: 20px;
 }
+
+.method-container {
+    overflow: auto;
+}
+
 body {
     font-family: 'Libre Baskerville', serif;
 }
@@ -16,7 +21,7 @@ body {
 
 /* Styling title header for method columns */
 .method-header {
-    padding: 20px;
+    padding: 10px;
     background-color: #ffca18;
     text-align: center;
 }
