@@ -1,14 +1,19 @@
-main {
-    height: 650px;
-}
+/*main {
+    height: 625px;
+}*/
 
 .methods {
     height: 400px;
 }
 
 .columns {
-    padding: 20px; 
+    padding: 20px;
 }
+
+.method-container {
+    overflow: auto;
+}
+
 body {
     font-family: 'Libre Baskerville', serif;
 }

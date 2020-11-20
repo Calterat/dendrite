@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dendrite</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA==" crossorigin="anonymous" />    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
@@ -19,16 +19,12 @@
     <!--Header-->
     <header class="hero is-warning is-bold has-text-centered">
         <div class='hero-body'>
-        <h1 class="title is-3">Team Dendrite</h1>
-        <p class="subtitle is-5">-<strong class="text is-italic">Word</strong> of The Day-</p>
-
-        <div class="columns is-centered method-container" id=whiteboard>
-            
-        </div>
+            <h1 class="title is-3">Dendrite</h1>
+            <p class="subtitle is-5">-<strong class="text is-italic">Create</strong> the Bridge Between Synapses-</p>
+            <div class="columns is-centered method-container" id=whiteboard></div>
         </div>
     </header>
-
-    
+    <!-- Main Content -->
     <main id='main'>
         <div class="columns">
             <div class="column">
@@ -38,9 +34,7 @@
                     <div class="card-content methods method-container" id="1"></div>
                     <footer class="card-footer">
                         <div class="card-footer-item">
-                            <buttons class="button" value='1' type='button'>
-                                nailed it!
-                            </buttons>
+                            <buttons class="button" value='1' type='button'>Nailed It!</buttons>
                         </div>
                     </footer>
                 </div>
@@ -53,8 +47,7 @@
                     <div class="card-content methods method-container" id="2"></div>
                     <footer class="card-footer">
                         <div class="card-footer-item">
-                            <buttons class="button" value='2' type='button'>
-                                nailed it!
+                            <buttons class="button" value='2' type='button'>Nailed It!
                             </buttons>
                         </div>
                     </footer>
@@ -68,9 +61,7 @@
                     <div class="card-content methods method-container" id="3"></div>
                     <footer class="card-footer">
                         <div class="card-footer-item">
-                            <buttons class="button" value='3' type='button'>
-                                nailed it!
-                            </buttons>
+                            <buttons class="button" value='3' type='button'>Nailed It!</buttons>
                         </div>
                     </footer>
                 </div>
@@ -83,8 +74,7 @@
                     <div class="card-content methods method-container" id="4"></div>
                     <footer class="card-footer">
                         <div class="card-footer-item">
-                            <buttons class="button" value='4' type='button'>
-                                nailed it!
+                            <buttons class="button" value='4' type='button'>Nailed It!
                             </buttons>
                         </div>
                     </footer>
@@ -98,6 +88,94 @@
         <p>&copy;2020 Group Project</p>
     </footer>
 
+    <!-- Modals -->
+    <section id="modals">    
+        <div class="modal" id="modal-method1">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">The Loci Method</p>
+                <button class="delete" id="modal1-btn" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+                BLAH BLAH BLAH
+            </section>
+            <footer class="modal-card-foot">
+                <!--
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+                -->
+                <p id='modalLink1'></p>
+            </footer>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-method2">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Mnemonics</p>
+                <button class="delete" id="modal2-btn" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+                BLAH BLAH BLAH
+            </section>
+            <footer class="modal-card-foot">
+                <!--
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+                -->
+                <p id='modalLink2'></p>
+            </footer>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-method3">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Storytelling</p>
+                <button class="delete" id="modal3-btn" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+                BLAH BLAH BLAH
+            </section>
+            <footer class="modal-card-foot">
+                <!--
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+                -->
+                <p id='modalLink3'></p>
+            </footer>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-method4">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Chunking</p>
+                <button class="delete" id="modal4-btn" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+                BLAH BLAH BLAH
+            </section>
+            <footer class="modal-card-foot">
+                <!--
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+                -->
+                <p id='modalLink4'></p>
+            </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
     <script src="https://kit.fontawesome.com/b85f1c01d4.js" crossorigin="anonymous"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
