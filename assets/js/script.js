@@ -60,7 +60,7 @@ $(".method-container").sortable({
         let modalNum = event.target.id;
         let modalQuery = $(`#modalLink${modalNum}`);
         let modalLink = $('<a>').attr('href', `https://www.google.com/search?q=${query}`).attr('target', '_blank')
-        modalLink.html(`Click here to see your google search on ${event.target.childNodes[0].childNodes[1].innerText}`);
+        modalLink.html(`Your practice starts with ${event.target.childNodes[0].childNodes[1].innerText}`);
         modalQuery.append(modalLink);
         $(`#modal-method${modalNum}`).addClass('is-active');
     },
