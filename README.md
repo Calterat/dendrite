@@ -42,7 +42,7 @@ Put your public and private API keys in a config file in your checkout, like thi
 
 
 ## Website
-
+[Visit the page here!](https://calterat.github.io/dendrite/)
 
 
 ## Contribution

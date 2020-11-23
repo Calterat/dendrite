@@ -113,7 +113,7 @@ $(".method-container").sortable({
 // pulls random word and then spits it to it's card generator
 const randomWordFetch = () => {
     let wordsApiUrl = 'https://wordsapiv1.p.rapidapi.com/words/?random=true';
-    let wordsApiKey = "XXX";
+    let wordsApiKey = "54a555c56amsh2612b502eaa7b60p1a4582jsndf626881550f";
     fetch(`${wordsApiUrl}`, {
         "method": "GET",
         "headers": {
@@ -125,7 +125,7 @@ const randomWordFetch = () => {
             if (response.ok) {
                 return response.json();
             } else {
-                // alert(`ERROR: ${response.statusText}`);
+                alert(`Error fetching your word: ${response.statusText}`);
             }
         })
         .then(response => {
@@ -153,8 +153,8 @@ const randomWikiFetch = () => {
         .then(response => {
             populateCard('Random Wiki:', response.query.random[0].title);
             populateCard('Random Wiki:', response.query.random[1].title);
-            // populateCard('Random Wiki:', response.query.random[2].title);
-            // populateCard('Random Wiki:', response.query.random[3].title);
+            populateCard('Random Wiki:', response.query.random[2].title);
+            populateCard('Random Wiki:', response.query.random[3].title);
         })
 };
 
